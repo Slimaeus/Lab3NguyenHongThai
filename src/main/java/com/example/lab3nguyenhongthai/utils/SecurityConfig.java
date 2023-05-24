@@ -51,6 +51,14 @@ public class SecurityConfig {
 
                         .authenticated()
 
+                        .requestMatchers( "/categories/edit", "/categories/delete")
+
+                        .authenticated()
+
+                        .requestMatchers("/categories", "/categories/add")
+
+                        .authenticated()
+
                         .anyRequest().authenticated()
 
                 )
