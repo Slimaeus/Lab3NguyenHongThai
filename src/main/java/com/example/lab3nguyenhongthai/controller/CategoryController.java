@@ -50,7 +50,7 @@ public class CategoryController {
             model.addAttribute("category", editCategory);
             return "category/edit";
         }
-        return "not-found";
+        return "error/404";
     }
 
     @PostMapping("/edit")

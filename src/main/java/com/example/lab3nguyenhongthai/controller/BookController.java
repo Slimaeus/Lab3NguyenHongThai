@@ -55,7 +55,7 @@ public class BookController {
             model.addAttribute("categories", categoryService.getAllCategories());
             return "book/edit";
         }
-        return "not-found";
+        return "error/404";
     }
 
     @PostMapping("/edit")
