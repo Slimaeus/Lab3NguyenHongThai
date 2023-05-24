@@ -4,6 +4,7 @@ import com.example.lab3nguyenhongthai.entity.Book;
 import com.example.lab3nguyenhongthai.service.BookService;
 import com.example.lab3nguyenhongthai.service.CategoryService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,13 +16,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/books")
 public class BookController {
-    private final BookService bookService;
-    private final CategoryService categoryService;
-
-    public BookController(BookService bookService, CategoryService categoryService) {
-        this.bookService = bookService;
-        this.categoryService = categoryService;
-    }
+    @Autowired
+    private BookService bookService;
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping
     public ModelAndView listBooks() {
