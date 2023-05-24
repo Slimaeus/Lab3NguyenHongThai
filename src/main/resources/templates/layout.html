@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,12 +27,19 @@
           <li class="nav-item"><a class="nav-link" href="/books/add">Add Book</a></li>
           <li class="nav-item"><a class="nav-link" href="/categories">List Category</a></li>
           <li class="nav-item"><a class="nav-link" href="/categories/add">Add Category</a></li>
-          <li sec:authorize="isAuthenticated()">
+
+        </ul>
+        <ul class="navbar-nav">
+          <li sec:authorize="isAuthenticated()" class="nav-item">
+              <button class="btn btn-primary">Hello <span sec:authentication="name">Username</span></button>
+          </li>
+          <li sec:authorize="isAuthenticated()" class="nav-item">
+
             <form th:action="@{/logout}" method="post">
               <button class="btn btn-outline-danger" type="submit">Logout</button>
             </form>
           </li>
-          <li sec:authorize="!isAuthenticated()">
+          <li sec:authorize="!isAuthenticated()" class="nav-item">
             <a class="btn btn-outline-primary" href="/login">Login</a>
           </li>
         </ul>
