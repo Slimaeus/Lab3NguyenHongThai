@@ -4,6 +4,7 @@ import com.example.lab3nguyenhongthai.entity.Category;
 import com.example.lab3nguyenhongthai.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -63,9 +64,16 @@ public class CategoryController {
         return "redirect:/categories";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteCategory(@PathVariable("id") Long id) {
-        categoryService.deleteCategory(id);
-        return "redirect:/categories";
+//    @GetMapping("/delete/{id}")
+//    public String deleteCategory(@PathVariable("id") Long id) {
+//        categoryService.deleteCategory(id);
+//        return "redirect:/categories";
+//    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCategory(@PathVariable("id") Long id) {
+        if (categoryService.getCategoryById(id) != null) {
+            categoryService.deleteCategory(id);
+        }
     }
 }
