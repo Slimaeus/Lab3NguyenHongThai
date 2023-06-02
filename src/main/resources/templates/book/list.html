@@ -22,7 +22,6 @@
       <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
     </tr>
 <!--    <tbody id="book-table-body">-->
-
 <!--    </tbody>-->
     <tbody th:each="book : ${books}" >
     <tr th:id="|book-${book.id}|">
