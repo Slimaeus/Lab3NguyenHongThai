@@ -33,7 +33,7 @@
       </select>
       <span class="text-danger" th:if="${#fields.hasErrors('category.id')}" th:errors="*{category}"></span>
     </div>
-    <input type="submit" value="Save">
+    <input class="btn btn-primary" type="submit" value="Save">
   </form>
   <br>
   <a th:href="@{/books}">Back to List</a>

@@ -11,11 +11,6 @@
     <h1>Add Book</h1>
     <form th:action="@{/books/add}" th:object="${book}" method="post">
         <div class="col-6 mb-3">
-            <label class="form-label" for="id">Id:</label>
-            <input class="form-control" type="text" th:field="*{id}" id="id">
-            <span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-        </div>
-        <div class="col-6 mb-3">
             <label class="form-label" for="title">Title:</label>
             <input class="form-control" type="text" th:field="*{title}" id="title">
         </div>
